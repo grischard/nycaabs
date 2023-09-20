@@ -2,7 +2,6 @@
 
  - Add noscript message
  - Populate addressRangeList (not sure if this is worth doing without the full address range data from GOAT.)
- - Expand "Blvd" (maybe also "Blvd."?) before search ("213-03 NORTHERN blvd" gives wrong result)
  - Query for HPD ID & link to HPD portal
  - 855 Clarkson Brooklyn
  
@@ -34,7 +33,7 @@ if (paramSearch === null) {
     clearSearchLog();
     slippyMapDefault();
 } else {
-    searchInput.value = paramSearch.trim();
+    searchInput.value = paramSearch.trim().replace(/Blvd[.]*/gi, 'Boulevard');
     doSearch();
 }
 
